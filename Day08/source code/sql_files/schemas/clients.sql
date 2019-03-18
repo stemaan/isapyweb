@@ -1,0 +1,14 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE klienci(id integer primary key autoincrement not null, imie text, nazwisko text);
+INSERT INTO klienci VALUES(1,'Jan','Kowalski');
+INSERT INTO klienci VALUES(2,'Adam','Nowak');
+INSERT INTO klienci VALUES(3,'Pawel','Nowak');
+CREATE TABLE adresy(id integer primary key autoincrement not null, nazwa text, adres text, klient_id integer not null, foreign key (klient_id) references klienci(id));
+INSERT INTO adresy VALUES(1,'Dom','ul. Pythona 15 12-345 Pythonowo',1);
+INSERT INTO adresy VALUES(2,'Praca','ul. Pythona 123 12-345 Pythonowo',1);
+INSERT INTO adresy VALUES(3,'Dom','ul. Pythona 23 12-345 Pythonowo',2);
+DELETE FROM sqlite_sequence;
+INSERT INTO sqlite_sequence VALUES('klienci',3);
+INSERT INTO sqlite_sequence VALUES('adresy',3);
+COMMIT;
