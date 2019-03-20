@@ -1,0 +1,20 @@
+Kolejność zapoznawania się z kodem:
+    01. client_models.py - jak tworzone są klasy reprezentujące modele. Zwróć uwagę na obiekty relationship w obu (!) klasach
+
+    02. sqlalchemy_create_engine.py - jak tworzona jest baza (lokalizacja, struktura), jak tworzona jest sesja
+
+    03. sqlalchemy_insert_example.py - jak wypełnia się tabele. Zwróc uwagę na zakomentowaną operację 'commit' dla klienta 'Adam' i konsekwencje tego
+
+    04. fetching_query_results.py - jak korzysta się z sesji, sposoby obsługi wyników zwróconych z bazy
+
+    05. queries_example.py - jak można odpytywać bazę; dopisz drukowanie zawartości zwróconych obiektów
+
+
+Kolejność czynności związanych z uruchamianiem kodu:
+    01. zainstaluj sqlalchemy
+
+    02. sqlalchemy_create_engine.py
+
+    03. sqlalchemy_insert_example.py
+
+    04. fetching_query_results.py
