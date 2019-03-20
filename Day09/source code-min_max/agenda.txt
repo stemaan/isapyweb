@@ -1,0 +1,5 @@
+
+Kolejność czynności związanych z uruchamianiem kodu:
+
+	01. insert_data.py
+	02. fetch_query_results.py
