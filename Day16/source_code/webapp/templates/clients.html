@@ -1,10 +1,10 @@
-{{ dodatkowy_parametr }}
-
+{{ additional_param }}
+Jeśli chcesz dodać konto klienta, użyj tego linku:
+<a href="{{ url_for('add') }}">{{ url_for('add') }}</a>
 <ol>
-{% for client in clients %}
-    <li>{{ client.first_name }} {{ client.last_name }}</li>
-{% else %}
-    Brak klientów w bazie. Jeśli chcesz dodać konto klienta, użyj tego linku:
-    <a href="{{ url_for('add') }}">{{ url_for('add') }}</a>
-{% endfor %}
+    {% for client in clients %}
+        <li>{{ client.first_name }} {{ client.last_name }}</li>
+    {% else %}
+        Brak klientów w bazie.
+    {% endfor %}
 </ol>
