@@ -1,0 +1,9 @@
+<h3>Lista adresów w bazie danych:</h3>
+
+<ol>
+{% for address in objects %}
+    <li>{{ address.address }}</li>
+{% else %}
+    Brak adresów w bazie
+{% endfor %}
+</ol>

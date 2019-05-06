@@ -1,0 +1,6 @@
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ form.first_name.label }} {{ form.first_name }}
+    {{ form.last_name.label }} {{ form.last_name }}
+    <input type="submit" value="Go">
+</form>
