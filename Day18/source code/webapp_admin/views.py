@@ -10,6 +10,7 @@ from .forms import ClientForm
 def index():
     return render_template('main_page.html')
 
+
 @app.route('/clients/add/', methods=['GET', 'POST'])
 def add():
     form = ClientForm()
@@ -38,7 +39,7 @@ class ListView(View):
         return self.render_template(context)
 
 
-class ClientView(ListView):
+class ClientListView(ListView):
 
     def get_template_name(self):
         return 'clients.html'
@@ -47,4 +48,4 @@ class ClientView(ListView):
         return Client.query.all()
 
 
-app.add_url_rule('/clients/', view_func=ClientView.as_view('clients_list'))
+app.add_url_rule('/clients/', view_func=ClientListView.as_view('clients_list'))
