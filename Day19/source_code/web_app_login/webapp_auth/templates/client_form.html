@@ -1,0 +1,14 @@
+{% include "header.html" %}
+
+<div class="container">
+    <h3>Formularz tworzenia konta użytkownika</h3>
+    <br>
+
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.first_name.label }} {{ form.first_name }}
+        {{ form.last_name.label }} {{ form.last_name }}
+        <input type="submit" value="Go">
+    </form>
+</div>
+{% include "footer.html" %}

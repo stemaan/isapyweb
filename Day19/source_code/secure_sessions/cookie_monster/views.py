@@ -18,7 +18,7 @@ def add():
         validated_data.pop('csrf_token')
 
         # w sesji ustawiam przekazany wpis
-        session[validated_data['cookie_name']] =  validated_data['cookie_value']
+        session[validated_data['cookie_name']] = validated_data['cookie_value']
         return redirect(url_for('add'))
 
     return render_template('cookies.html', form=CookieForm(), cookies=session)

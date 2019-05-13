@@ -1,0 +1,37 @@
+{% include "header.html" %}
+
+
+<div class="container">
+    <h3>Skorzystaj z poniższych linków:</h3>
+    <br>
+
+    <ul>
+        <li>
+            <a href="{{ url_for("add") }}">{{ url_for("add") }}</a> - formularz dodawania konta klienta (chroniony!)
+        </li>
+        <li>
+            <a href="{{ url_for("clients_list") }}">{{ url_for("clients_list") }}</a> - lista klientów
+        </li>
+        <li>
+            # TODO: logowanie
+        </li>
+        <li>
+            # TODO: wylogowanie
+        </li>
+    </ul>
+    <br>
+    <br>
+
+<!-- obsługa wiadomości -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</div>
+
+{% include "footer.html" %}

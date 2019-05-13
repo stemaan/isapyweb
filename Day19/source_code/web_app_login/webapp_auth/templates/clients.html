@@ -1,0 +1,17 @@
+{% include "header.html" %}
+
+
+<div class="container">
+    <h3>Lista klientów w bazie</h3>
+    <br>
+
+    <ol>
+        {% for client in clients %}
+            <li>{{ client.first_name }} {{ client.last_name }}</li>
+        {% else %}
+            Brak klientów w bazie
+        {% endfor %}
+    </ol>
+</div>
+
+{% include "footer.html" %}
