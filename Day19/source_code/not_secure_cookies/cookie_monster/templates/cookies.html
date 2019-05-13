@@ -1,0 +1,19 @@
+
+<h2>Oto spis ciasteczek</h2>
+<table border="1">
+    <tr>
+        <th>Nazwa</th>
+        <th>Wartość</th>
+        <th>Akcja</th>
+    </tr>
+    {% for key, value in cookies.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+            # TODO: dodaj link do kasowania ciasteczka
+        </tr>
+    {% endfor %}
+</table>
+
+<h2>Formularz zakładania ciasteczek</h2>
+# TODO: dodaj formularz do tworzenia nowego ciasteczka
