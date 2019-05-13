@@ -21,7 +21,7 @@ def add():
         # tworzę odpowiedź, która będzie przekierowywała na formularz
         response = make_response(redirect(url_for('add')))
         # w odpowiedzi ustawiam otrzymane cookie
-        # TODO ustaw cookie
+        response.set_cookie(validated_data['cookie_name'], validated_data['cookie_value'])
         # zwracam odpowiedź
         return response
 

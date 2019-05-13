@@ -1,5 +1,5 @@
 
-<h2>Oto spis ciasteczek</h2>
+<h2>Oto wpisów w sesji</h2>
 <table border="1">
     <tr>
         <th>Nazwa</th>
@@ -17,8 +17,11 @@
 
 <h2>Formularz zakładania ciasteczek</h2>
 <form method="POST">
+
     {{ form.csrf_token }}
     {{ form.cookie_name.label }} {{ form.cookie_name }}
     {{ form.cookie_value.label }} {{ form.cookie_value }}
-    <input type="submit" value="Dodaj ciastko">
+
+    <input type="submit" value="Dodaj ciasteczko">
+
 </form>
