@@ -1,0 +1,7 @@
+<ol>
+{% for address in objects %}
+    <li>{{ address.name }} {{ address.address }}</li>
+{% else %}
+    Brak klientów w bazie
+{% endfor %}
+</ol>

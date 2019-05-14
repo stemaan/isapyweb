@@ -1,9 +1,9 @@
 from flask.views import View
 from flask import render_template, redirect
 
-from .models import Client
+from .models import Client, Address
 from . import app, db
-from .forms import ClientForm
+from .forms import ClientForm, AddressForm
 
 
 @app.route('/')
@@ -26,6 +26,21 @@ def add():
     return render_template('client_form.html', form=ClientForm())
 
 
+@app.route('/addresses/add/', methods=['GET', 'POST'])
+def add_address():
+    form = AddressForm()
+    if form.validate_on_submit():
+        validated_data = form.data.copy()
+        validated_data.pop('csrf_token')
+
+        new_client = Address(**validated_data)
+        db.session.add(new_client)
+        db.session.commit()
+
+        return redirect('/addresses/')
+    return render_template('address_form.html', form=AddressForm())
+
+
 class ListView(View):
 
     def get_template_name(self):
@@ -39,7 +54,7 @@ class ListView(View):
         return self.render_template(context)
 
 
-class ClientListView(ListView):
+class ClientView(ListView):
 
     def get_template_name(self):
         return 'clients.html'
@@ -48,4 +63,14 @@ class ClientListView(ListView):
         return Client.query.all()
 
 
-app.add_url_rule('/clients/', view_func=ClientListView.as_view('clients_list'))
+class AddressListtView(ListView):
+
+    def get_template_name(self):
+        return 'adresses.html'
+
+    def get_objects(self):
+        return Address.query.all()
+
+
+app.add_url_rule('/clients/', view_func=ClientView.as_view('clients_list'))
+app.add_url_rule('/addresses/', view_func=AddressListtView.as_view('addresses_list'))
