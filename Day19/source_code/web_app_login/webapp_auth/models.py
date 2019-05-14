@@ -26,5 +26,10 @@ class Address(db.Model):
     def __repr__(self):
         return f'<Address(name={self.name}, address={self.address}, client_id={self.client_id})>'
 
-# TODO:
-# User model
+
+class User(UserMixin, db.Model):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    login = db.Column(db.String(100))
+    password = db.Column(db.String(64))

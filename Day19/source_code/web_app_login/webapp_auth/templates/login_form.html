@@ -5,9 +5,15 @@
     <h3>Skorzystaj z panelu logowania:</h3>
     <br>
 
-    <form method="POST">
+    <form method="POST" action="{{ url_for('login', next=request.endpoint) }}">
         <table class="table">
-            # TODO: formularz logowania
+            {{ form.csrf_token }}
+            <tr>
+                <td>{{ form.login.label }} {{ form.login }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label }} {{ form.password }}</td>
+            </tr>
             <tr>
                 <td><input type="submit" value="Go"></td>
             </tr>
